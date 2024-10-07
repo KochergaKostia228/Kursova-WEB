@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kursova-WEB.Server", "Kursova-WEB.Server\Kursova-WEB.Server.csproj", "{1D0666DD-2012-47B9-BE89-9C4545F18CE3}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "kursova-web.client", "kursova-web.client\kursova-web.client.esproj", "{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D0666DD-2012-47B9-BE89-9C4545F18CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0666DD-2012-47B9-BE89-9C4545F18CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0666DD-2012-47B9-BE89-9C4545F18CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0666DD-2012-47B9-BE89-9C4545F18CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCD7D4B-E06F-435F-BFF9-59BD50301F1E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51536D02-8B0D-4347-9FEF-CD7F960CF6A2}
+	EndGlobalSection
+EndGlobal
