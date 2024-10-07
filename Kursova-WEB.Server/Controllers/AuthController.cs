@@ -16,7 +16,7 @@ namespace Kursova_WEB.Server.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
-        public AuthController(UserManager<User> userManager)
+        public AuthController(UserManager<User> userManager) 
         {
             _userManager = userManager;
         }
