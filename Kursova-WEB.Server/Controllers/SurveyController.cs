@@ -85,6 +85,36 @@ namespace Kursova_WEB.Server.Controllers
         }
 
         [HttpGet]
+        [Route("resultList")]
+        public async Task<ApiResponse<IEnumerable<Survey>>> ResultList()
+        {
+            await UpdatePollStatuses(); // Обновляем статусы перед возвратом данных
+
+            var model = await _siteContext.Surveys.
+                Include(x => x.Candidates).
+                Where(x => x.Status == SurveyStatus.Activate || x.Status == SurveyStatus.Overdue).
+                ToListAsync();
+
+            var userEmail = User.Claims.First(x => x.Type == ClaimTypes.Email).Value;
+
+            var user = await _userManager.FindByEmailAsync(userEmail);
+
+            var surveys = new List<Survey>();
+
+            foreach (var survey in model)
+            {
+                if (await _siteContext.Votes.AnyAsync(v => v.User.Id == user.Id && v.Survey.Id == survey.Id))
+                {
+                    survey.Status = SurveyStatus.Complete;
+                }
+                surveys.Add(survey);
+            }
+
+            return ApiResponse<IEnumerable<Survey>>
+            .SuccessResponse(surveys);
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public async Task<ApiResponse<Survey>> GetById(int id)
         {
@@ -185,7 +215,10 @@ namespace Kursova_WEB.Server.Controllers
             vote.Candidate = candidate;
             vote.Survey = model;
 
-            _siteContext.Votes.Add(vote);
+            if (!await _siteContext.Votes.AnyAsync(v => v.User.Id == vote.User.Id && v.Survey.Id == model.Id)) {
+                vote.Candidate.Votes += 1;
+                _siteContext.Votes.Add(vote);
+            }
 
             await _siteContext.SaveChangesAsync();
 

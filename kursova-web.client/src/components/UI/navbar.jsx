@@ -24,6 +24,9 @@ function Navbar() {
                             <li className="nav-item">
                                 <button className="nav-link" onClick={() => router(`survey`)}>Active Survey</button>
                             </li>
+                            <li className="nav-item">
+                                <button className="nav-link" onClick={() => router(`survey/resultList`)}>Result Survey</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
